@@ -1,0 +1,36 @@
+@page "/dynamic"
+
+<h3>Dynamic Component</h3>
+
+<br>
+<br>
+
+
+
+<button @onclick="HandleBlazorServerClick">Blazor Server</button>
+<button @onclick="HandleBlazorWasmClick">Blazor WebAssembly</button>
+
+<br>
+<br>
+<h3>@title</h3>
+<br>
+<div>
+    @content
+</div>
+
+@code {
+    private string title;
+    private string content;
+
+    private void HandleBlazorServerClick()
+    {
+        title = "Blazor Server";
+        content = "A Blazor Server app pre-renders in response to the first client request, which sets up the UI state on the server";
+    }
+
+    private void HandleBlazorWasmClick()
+    {
+        title = "Blazor WASM";
+        content = " Blazor can run your client-side C# code directly in the browser, using WebAssembly.";
+    }
+}
